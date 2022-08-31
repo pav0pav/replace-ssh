@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: Set authorized key and remove the old ones from the server
+      authorized_key:
+        user: username
+        key: '{{ item }}'
+        state: present
+        exclusive: true
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_ed25519.pub') }}"

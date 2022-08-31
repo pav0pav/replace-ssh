@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: false
   tasks:
-    - name: Set authorized key and remove the old ones from the server
+    - name: Set authorized key and remove old ones from the server
       authorized_key:
         user: username
         key: '{{ item }}'
